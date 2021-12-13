@@ -13,6 +13,7 @@ const userSchema = new mongooseConnection.Schema({
 });
 
 const wineSchema = new mongooseConnection.Schema({
+  name: String,
   origin: String,
   type: String,
   grapeType: String,
