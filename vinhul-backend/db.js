@@ -6,9 +6,27 @@ mongooseConnection
 
 const userSchema = new mongooseConnection.Schema({
   email: String,
-  password: String
+  password: String,
+  name: String,
 }, {
   collection: "user"
 });
 
-module.exports = { mongooseModule: mongooseConnection, userSchema: userSchema };
+const wineSchema = new mongooseConnection.Schema({
+  origin: String,
+  type: String,
+  grapeType: String,
+  foodHarmony: String
+});
+
+const reviewSchema = new mongooseConnection.Schema({
+  score: Number,
+  message: String
+});
+
+module.exports = {
+  mongooseModule: mongooseConnection,
+  userSchema: userSchema,
+  wineSchema: wineSchema,
+  reviewSchema: reviewSchema
+};
