@@ -1,36 +1,32 @@
 const express = require('express');
-const res = require('express/lib/response');
-const router = express.Router();
+const res     = require('express/lib/response');
+const router  = express.Router();
 
-router.post("/createaccount", (req, res) => {
+router.post("/createaccount", (request, response) => {
   const db = require("../db");
   const UserModel = db.mongooseModule.model("user", db.userSchema, "user");
-  var userEmail = req.body.email;
-  var userPassword = req.body.password;
-  var userName = req.body.username;
-  var newUser = new UserModel({ email: userEmail, password: userPassword, userName: userName });
-  var response = "[MESSAGE] POST request to adduser.\n";
+  var newObj = {
+    email: request.body.email,
+    password: request.body.password,
+    name: request.body.name
+  }
 
-  UserModel.countDocuments({ email: userEmail }, ((err, count) => {
-    if (err) {
-      response += "[ERROR] " + err;
+  UserModel.countDocuments({ email: newObj.email }, ((error, count) => {
+    if (error) {
+      response.send({ result: "ERROR", message: error });
     } else if (count > 0) { // Check if user doesn't already have an account
-      response += "[ERROR] This email already has an account.";
+      response.send({ result: "ERROR", message: "User already has an account." });
     } else {
       // If user doesn't have account, saves the new document
-      response += "[MESSAGE] User added to database.";
-
-      newUser.save((error, data) => {
+      UserModel.create(newObj, (error, item) => {
         if (error) {
-          console.error(error);
-          res.send({ result: "ERROR" });
+          response.send({ result: "ERROR", message: error });
         } else {
-          console.log(data);
-          res.send({ result: "OK" });
+          item.save();
+          response.send({ result: "OK", document: newObj });
         }
       });
     }
-    console.log(response);
   }));
 });
 
@@ -40,20 +36,16 @@ router.get("/login", (req, res) => {
   // Gets email and password from querying url
   var email = req.query.email;
   var password = req.query.password;
-  var response = "[MESSAGE] GET request to login.\n";
 
   // Counts how many documents have this email and password
   UserModel.countDocuments({ email: email, password: password }, (error, count) => {
     if (error) {
-      response += "[ERROR] " + error;
-      res.send({ result: "ERROR" });
+      res.send({ result: "ERROR", message: error });
     } else if (count <= 0) {
       // If user doesn't have an account, return error.
-      response += "[ERROR] User not found.";
-      res.send({ result: "ERROR" });
+      res.send({ result: "ERROR", message: "User doesn't have an account." });
     } else {
-      response += "[MESSAGE] User found.";
-      res.send({ result: "OK" });
+      res.send({ result: "OK", message: "Logged in." });
     }
     console.log(response);
   });
