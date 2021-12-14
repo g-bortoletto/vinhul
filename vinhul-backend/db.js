@@ -28,6 +28,7 @@ const wineSchema = new mongooseConnection.Schema({
 
 const reviewSchema = new mongooseConnection.Schema({
   score: Number,
+  title: String,
   message: String
 }, {
   collection: "review"
