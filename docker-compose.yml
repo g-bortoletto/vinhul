@@ -14,5 +14,19 @@ services:
       - 'mongo-data:/data/db'
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 
+  backend:
+    build: ./vinhul-backend
+    restart: "always"
+    depends_on:
+      - mongo
+    ports:
+      - '14001:8080'
+    environment:
+      DB_USER: root
+      DB_PASS: web
+      DB_NAME: web
+      DB_HOST: mongo:27017
+      PORT: 8080
+
 volumes:
   mongo-data:
