@@ -1,6 +1,8 @@
 const mongooseConnection = require("mongoose");
 mongooseConnection
-  .connect("mongodb://127.0.0.1:27017/vinhul", { useNewUrlParser: true })
+  .connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}`, {
+    useNewUrlParser: true,
+  })
   .then(console.log("[MESSAGE] Database connected..."))
   .catch((error) => { console.error("[ERROR] " + error); });
 

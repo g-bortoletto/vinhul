@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  mongo:
+    image: mongo:5.0.2
+    restart: "on-failure:10"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: web
+      MONGO_INITDB_DATABASE: web
+    ports:
+      - '27123:27017'
+    volumes:
+      - 'mongo-data:/data/db'
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+volumes:
+  mongo-data:
