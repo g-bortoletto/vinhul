@@ -1,0 +1,23 @@
+.login-wrapper {
+  width: 800px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid silver;
+  border-radius: 10px;
+}
+
+.login-container {
+  width: 400px;
+  padding: 20px 40px;
+  border-right: 1px solid silver;
+}
+
+.signup-container {
+  width: 400px;
+  padding: 20px 40px;
+}
+
+.login-title, .signup-title {
+  margin: 0 0 20px 0;
+}
