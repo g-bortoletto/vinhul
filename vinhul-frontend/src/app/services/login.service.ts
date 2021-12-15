@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../types';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,11 +10,16 @@ import { User } from '../types';
 export class LoginService {
   loggedUser$: BehaviorSubject<User> = new BehaviorSubject({} as User);
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   login(email: string, password: string) {
-    console.log(email);
-    console.log(password);
+    this.http
+      .get<User>(`${environment.backendUrl}/getaccount`, { params: { email } })
+      .subscribe(
+        (user) => {
+          console.log(user);
+        }
+      );
   }
 
   signup(name: string, email: string, password: string) {
