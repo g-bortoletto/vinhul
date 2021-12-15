@@ -28,5 +28,14 @@ services:
       DB_HOST: mongo:27017
       PORT: 8080
 
+  frontend:
+    build: ./vinhul-frontend
+    restart: "always"
+    depends_on:
+      - mongo
+    ports:
+      - '14000:80'
+
+
 volumes:
   mongo-data:
