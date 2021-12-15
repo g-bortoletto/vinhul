@@ -2,18 +2,6 @@ const express = require("express");
 const fs = require("fs");
 const db = require("../db");
 const router = express.Router();
-const multer = require('multer');
-
-var storage = multer.diskStorage({
-  destination: (request, file, cb) => {
-    cb(null, "./uploads");
-  },
-  filename: (request, file, cb) => {
-    cb(null, file.originalname);
-  }
-});
-
-var upload = multer({ storage: storage });
 
 router.post('/createwine', upload.single('image'), (request, response) => {
   var obj = {
@@ -22,10 +10,7 @@ router.post('/createwine', upload.single('image'), (request, response) => {
     type: request.body.type,
     grapeType: request.body.grapetype,
     foodHarmony: request.body.foodharmony,
-    image: {
-      data: fs.readFileSync("./uploads/" + request.file.originalname),
-      contentType: 'image/png'
-    }
+    image: request.body.image
   };
   const WineModel = db.mongooseModule.model("wine", db.wineSchema, "wine");
   WineModel.countDocuments(obj, (error, count) => {
@@ -90,10 +75,7 @@ router.put('/updatewine', (request, response) => {
     type: request.query.type,
     grapeType: request.query.grapetype,
     foodHarmony: request.query.foodharmony,
-    image: {
-      data: Buffer,
-      contentType: 'image/png'
-    }
+    image: request.query.image
   };
 
   if (updates.name == undefined) {

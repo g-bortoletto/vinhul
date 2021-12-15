@@ -4,8 +4,8 @@
     <ul class="navbar-links">
       <li><a routerLink="/">Buscar Vinhos</a></li>
       <li>
-        <a routerLink="/meus-vinhos" *ngIf="(login$ | async)?.email"
-          >Meus Vinhos</a
+        <a routerLink="/cadastrar" *ngIf="(login$ | async)?.email"
+          >Cadastrar Vinho</a
         >
       </li>
     </ul>
