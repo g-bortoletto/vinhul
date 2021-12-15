@@ -3,10 +3,17 @@
     <div class="navbar-title">Vinhul</div>
     <ul class="navbar-links">
       <li><a routerLink="/">Buscar Vinhos</a></li>
-      <li><a routerLink="/meus-vinhos">Meus Vinhos</a></li>
+      <li>
+        <a routerLink="/meus-vinhos" *ngIf="(login$ | async)?.email"
+          >Meus Vinhos</a
+        >
+      </li>
     </ul>
     <div class="navbar-right">
-      <a routerLink="/login">Login</a>
+      <div class="navbar-name" *ngIf="(login$ | async)?.email">Olá, {{ (login$ | async)?.name }}</div>
+      <a routerLink="/login">{{
+        (login$ | async)?.email ? "Logout" : "Login"
+      }}</a>
     </div>
   </div>
 </div>
