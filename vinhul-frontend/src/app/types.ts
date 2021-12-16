@@ -4,11 +4,13 @@ export interface User {
   password: String;
 }
 
-export interface Wines{
-  name: String;
-  origin:String;
-  type:String;
-  grapeType:String;
-  foodHarmony:String;
-  image:String;
+export interface Wine {
+  name: String,
+  origin: String,
+  type: String,
+  grapeType?: String,
+  foodHarmony?: String,
+  grapetype?: String,
+  foodharmony?: String,
+  image: String
 }
