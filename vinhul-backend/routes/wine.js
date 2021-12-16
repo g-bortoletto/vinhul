@@ -3,7 +3,7 @@ const fs = require("fs");
 const db = require("../db");
 const router = express.Router();
 
-router.post('/createwine', upload.single('image'), (request, response) => {
+router.post('/createwine', (request, response) => {
   var obj = {
     name: request.body.name,
     origin: request.body.origin,

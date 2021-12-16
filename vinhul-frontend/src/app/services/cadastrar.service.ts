@@ -17,7 +17,8 @@ export class CadastrarService {
     origin: string,
     type: string,
     grapetype: string,
-    foodharmony: string
+    foodharmony: string,
+    image: string
   ) {
     const body: Wine = {
       name: name,
@@ -25,7 +26,7 @@ export class CadastrarService {
       type: type,
       grapetype: grapetype,
       foodharmony: foodharmony,
-      image: '',
+      image: image,
     };
 
     const httpOptions = {

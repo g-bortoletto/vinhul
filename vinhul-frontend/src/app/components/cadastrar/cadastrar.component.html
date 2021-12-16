@@ -53,6 +53,14 @@
           [(ngModel)]="foodharmony"
         />
       </div>
+      <div class="form-group">
+        <label>Foto</label>
+        <input
+          type="file" 
+          (change)="handleFoto($event)"
+          accept="image/*"
+        />
+      </div>
       <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
   </div>
