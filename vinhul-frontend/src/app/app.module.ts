@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { CadastrarComponent } from './components/cadastrar/cadastrar.component';
+import { DetalhesComponent } from './components/detalhes/detalhes.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CadastrarComponent } from './components/cadastrar/cadastrar.component';
     NavbarComponent,
     LoginComponent,
     HomeComponent,
-    CadastrarComponent
+    CadastrarComponent,
+    DetalhesComponent
   ],
   imports: [
     BrowserModule,

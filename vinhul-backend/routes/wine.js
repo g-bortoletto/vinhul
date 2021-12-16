@@ -31,6 +31,17 @@ router.post('/createwine', (request, response) => {
   });
 });
 
+router.get('/getsingle/:id', (request, response) => {
+  const WineModel = db.mongooseModule.model("wine", db.wineSchema, "wine");
+  WineModel.findById(request.params.id, (error, item) => {
+    if (error) {
+      response.send({ result: "ERROR", message: error });
+    } else {
+      response.send({ result: "OK", item: item });
+    }
+  });
+});
+
 router.get('/getwine', (request, response) => {
   var obj = {
     name: request.query.name,
@@ -86,11 +97,11 @@ router.put('/updatewine', (request, response) => {
 
   // This sucks
   WineModel.find({ name: updates.name }).lean().exec((error, document) => {
-    if (updates.origin      == undefined) { updates.origin      = document.origin; }
-    if (updates.type        == undefined) { updates.type        = document.type  ; }
-    if (updates.grapeType   == undefined) { updates.grapeType   = document.grapeType; }
+    if (updates.origin == undefined) { updates.origin = document.origin; }
+    if (updates.type == undefined) { updates.type = document.type; }
+    if (updates.grapeType == undefined) { updates.grapeType = document.grapeType; }
     if (updates.foodHarmony == undefined) { updates.foodHarmony = document.foodHarmony; }
-    if (updates.image       == undefined) { updates.image       = document.image; }
+    if (updates.image == undefined) { updates.image = document.image; }
   });
 
   WineModel.findOneAndUpdate({ name: updates.name }, {
