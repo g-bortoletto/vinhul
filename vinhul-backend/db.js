@@ -20,10 +20,7 @@ const wineSchema = new mongooseConnection.Schema({
   type: String,
   grapeType: String,
   foodHarmony: String,
-  image: {
-    data: Buffer,
-    contentType: String
-  }
+  image: String
 }, {
   collection: "wine"
 });

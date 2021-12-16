@@ -1,0 +1,17 @@
+.cadastrar-wrapper {
+  width: 500px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid silver;
+  border-radius: 10px;
+}
+
+.cadastrar-container {
+  padding: 20px 40px;
+  width: 100%;
+}
+
+.cadastrar-title {
+  margin: 0 0 20px 0;
+}

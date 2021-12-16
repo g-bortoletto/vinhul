@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
+import { CadastrarComponent } from './components/cadastrar/cadastrar.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
     NavbarComponent,
     LoginComponent,
     HomeComponent
+    CadastrarComponent
   ],
   imports: [
     BrowserModule,
