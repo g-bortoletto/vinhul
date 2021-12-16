@@ -1,22 +1,19 @@
 <h1>Galeria de vinhos</h1>
 <div class="container">
-    <div class="card">
+    <div *ngFor="let wine of wines">
+        <div class="card">
+            <div class="img-container">
+                <img class="img" src="{{ wine.image }}" />
+            </div>
+            Nome: {{ wine.name }}<br/>
+            Origem: {{ wine.origin }}<br/>
+            Tipo: {{ wine.type }}<br/>
+            Tipo da uva: {{ wine.grapeType }}<br/>
+            Harmonização: {{ wine.foodHarmony }}
+            <button class="btn">Detalhes</button>
+        </div>
         
-    </div>
-    <div class="card">
-
-    </div>
-    <div class="card">
-
-    </div>
-    <div class="card">
-
-    </div>
-    <div class="card">
-
-    </div>
-    <div class="card">
-
+        
     </div>
 
 </div>

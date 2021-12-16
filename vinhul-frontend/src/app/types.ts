@@ -4,7 +4,7 @@ export interface User {
   password: String;
 }
 
-export interface Wines{
+export interface Wine{
   name: String;
   origin:String;
   type:String;
