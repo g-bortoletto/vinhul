@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Wines } from 'src/app/types';
+import { Wine } from 'src/app/types';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   listWines(){
-   this.http.get<Wines[]>(`${environment.backendUrl}/wine/getwine`,{
+   this.http.get<Wine[]>(`${environment.backendUrl}/wine/getwine`,{
    }).subscribe((value)=>{
     return value;
    });  

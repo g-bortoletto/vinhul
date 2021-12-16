@@ -16,7 +16,7 @@ import { CadastrarComponent } from './components/cadastrar/cadastrar.component';
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
     CadastrarComponent
   ],
   imports: [
