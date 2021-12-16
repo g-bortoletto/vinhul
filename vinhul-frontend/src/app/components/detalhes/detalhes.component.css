@@ -1,0 +1,33 @@
+.detalhes-wrapper {
+  width: 800px;
+  border: 1px solid gray;
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+}
+
+.detalhes-left {
+  flex: 1;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+
+.detalhes-right {
+  flex: 1;
+}
+
+.detalhes-img {
+  max-height: 300px;
+
+}
+
+.detalhes-topic {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.detalhes-content {
+  font-size: 16px;
+}

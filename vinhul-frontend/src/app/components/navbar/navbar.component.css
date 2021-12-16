@@ -14,8 +14,12 @@
 
 .navbar-title {
   flex: 1;
+}
+
+.navbar-title a {
   font-size: 30px;
   font-weight: bold;
+  color: #FFF;
 }
 
 .navbar-links {

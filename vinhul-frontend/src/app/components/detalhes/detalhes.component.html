@@ -1,1 +1,20 @@
-<p>detalhes works!</p>
+<div class="detalhes-wrapper">
+  <div class="detalhes-left">
+    <img class="detalhes-img" src="{{ wine.image }}" alt="{{ wine.name }}" />
+  </div>
+  <div class="detalhes-right">
+    <div class="detalhes-item">
+      <h2 class="detalhes-title">{{ wine.name }}</h2>
+      <h3 class="detalhes-origin">{{ wine.origin }}</h3>
+
+      <div class="detalhes-topic">Tipo</div>
+      <div class="detalhes-content">{{ wine.type }}</div>
+
+      <div class="detalhes-topic">Tipo de Uva</div>
+      <div class="detalhes-content">{{ wine.grapeType }}</div>
+
+      <div class="detalhes-topic">Harmonização</div>
+      <div class="detalhes-content">{{ wine.foodHarmony }}</div>
+    </div>
+  </div>
+</div>

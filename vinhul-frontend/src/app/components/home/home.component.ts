@@ -10,22 +10,20 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  name!:string;
-  origin!:string;
-  type!:string;
-  grapeType!:string;
-  foodHarmony!:string;
-  image!:string;
+  wines!:Wine[];
+  
+  
   constructor(private http: HttpClient) {}
-
+  
   ngOnInit(): void {
-   
+   this.listWines();
   }
 
   listWines(){
    this.http.get<Wine[]>(`${environment.backendUrl}/wine/getwine`,{
-   }).subscribe((value)=>{
-    return value;
+   }).subscribe((value:any)=>{
+    this.wines = value.wines;
+    return this.wines;
    });  
   }
 

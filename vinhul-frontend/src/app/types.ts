@@ -1,16 +1,17 @@
 export interface User {
-  email: String;
-  name: String;
-  password: String;
+  email: string;
+  name: string;
+  password: string;
 }
 
 export interface Wine {
-  name: String,
-  origin: String,
-  type: String,
-  grapeType?: String,
-  foodHarmony?: String,
-  grapetype?: String,
-  foodharmony?: String,
-  image: String
+  _id?: string;
+  name: string;
+  origin: string;
+  type: string;
+  grapeType?: string;
+  foodHarmony?: string;
+  grapetype?: string;
+  foodharmony?: string;
+  image: string;
 }

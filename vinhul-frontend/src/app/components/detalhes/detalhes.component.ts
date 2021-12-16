@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Wine } from 'src/app/types';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,17 +13,19 @@ export class DetalhesComponent implements OnInit, OnDestroy {
   id!: string;
   private sub: any;
 
-  constructor(private route: ActivatedRoute) {}
+  wine!: Wine;
+
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe((params) => {
       this.id = params['id'];
 
-      // this.http
-      //   .get<Wine[]>(`${environment.backendUrl}/wine/getwine`, {})
-      //   .subscribe((value) => {
-      //     return value;
-      //   });
+      this.http
+        .get<Wine>(`${environment.backendUrl}/wine/getsingle/${this.id}`, {})
+        .subscribe((value: any) => {
+          this.wine = value.item;
+        });
     });
   }
 
