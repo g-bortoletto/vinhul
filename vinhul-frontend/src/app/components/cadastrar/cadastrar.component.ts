@@ -40,5 +40,14 @@ export class CadastrarComponent implements OnInit {
       this.foodharmony,
       this.image
     );
+
+    alert("Vinho cadastrado com sucesso!");
+
+    this.name = '';
+    this.origin = '';
+    this.type = '';
+    this.grapetype = '';
+    this.foodharmony = '';
+    this.image = '';
   }
 }
